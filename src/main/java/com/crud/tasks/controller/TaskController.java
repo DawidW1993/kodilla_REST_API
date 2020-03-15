@@ -34,4 +34,9 @@ public class TaskController {
     @RequestMapping(method = RequestMethod.GET,value = "createTask")
     public void createTask(TaskDto taskDto){
     }
+
+    @RequestMapping(method = RequestMethod.GET,value = "displayMessage")
+    public void displayMessage(TaskDto taskDto){
+        System.out.println("Hi im the best");
+    }
 }
