@@ -22,21 +22,17 @@ public class TaskController {
         return new TaskDto(1L, "test title","test content" );
     }
 
-    @RequestMapping(method = RequestMethod.GET,value = "deleteTask")
+    @RequestMapping(method = RequestMethod.DELETE,value = "deleteTask")
     public void deleteTask(Long testID){
     }
 
-    @RequestMapping(method = RequestMethod.GET,value = "updateTask")
+    @RequestMapping(method =RequestMethod.PUT,value = "updateTask")
     public TaskDto updateTask(TaskDto taskDto){
         return new TaskDto(1L,"Edited test title","Test content");
     }
 
-    @RequestMapping(method = RequestMethod.GET,value = "createTask")
+    @RequestMapping(method = RequestMethod.POST,value = "createTask")
     public void createTask(TaskDto taskDto){
     }
 
-    @RequestMapping(method = RequestMethod.GET,value = "displayMessage")
-    public void displayMessage(TaskDto taskDto){
-        System.out.println("Hi im the best");
-    }
 }
