@@ -1,8 +1,8 @@
 package com.crud.tasks.client;
 
-import com.crud.tasks.domain.CreatedTrelloCard;
+import com.crud.tasks.domain.card.CreatedTrelloCard;
 import com.crud.tasks.domain.TrelloBoardDto;
-import com.crud.tasks.domain.TrelloCardDto;
+import com.crud.tasks.domain.card.TrelloCardDto;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,6 +68,7 @@ public class TrelloClient {
                 .queryParam("desc", trelloCardDto.getDescription())
                 .queryParam("pos", trelloCardDto.getPos())
                 .queryParam("idList", trelloCardDto.getListId())
+                .queryParam("badges", trelloCardDto.getCardBadges())
                 .build().encode().toUri();
 
         return url;
