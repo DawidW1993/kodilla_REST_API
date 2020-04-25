@@ -37,7 +37,7 @@ public class TrelloClient {
     @Autowired
     private TrelloConfig trelloConfig;
 
-    public List<TrelloBoardDto> getTrelloBoard(){
+    public List<TrelloBoardDto> getTrelloBoards(){
 
         try {
             TrelloBoardDto[] boardsResponse = restTemplate.getForObject(getTrelloBoardURL(), TrelloBoardDto[].class);

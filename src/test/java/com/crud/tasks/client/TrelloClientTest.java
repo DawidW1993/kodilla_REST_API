@@ -50,7 +50,7 @@ public class TrelloClientTest {
         when(restTemplate.getForObject(uri, TrelloBoardDto[].class)).thenReturn(trelloBoards);
 
         // When
-        List<TrelloBoardDto> trelloBoardDtos = trelloClient.getTrelloBoard();
+        List<TrelloBoardDto> trelloBoardDtos = trelloClient.getTrelloBoards();
 
         // Then
         assertEquals(1,trelloBoardDtos.size() );
@@ -67,7 +67,7 @@ public class TrelloClientTest {
         when(restTemplate.getForObject(uri, TrelloBoardDto[].class)).thenReturn(null);
 
         //When
-        List<TrelloBoardDto> trelloBoardDtos = trelloClient.getTrelloBoard();
+        List<TrelloBoardDto> trelloBoardDtos = trelloClient.getTrelloBoards();
 
         assertEquals(0,trelloBoardDtos.size());
     }

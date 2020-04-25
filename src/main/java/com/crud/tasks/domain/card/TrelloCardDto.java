@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
+//@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 public class TrelloCardDto {
@@ -14,7 +14,7 @@ public class TrelloCardDto {
     private String description;
     private String pos;
     private String listId;
-    private Badges cardBadges;
+    //private Badges cardBadges;
 
     public TrelloCardDto(String name, String description, String pos, String listId) {
         this.name = name;
