@@ -4,6 +4,8 @@ import com.crud.tasks.domain.card.TrelloCard;
 import com.crud.tasks.domain.card.TrelloCardDto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
@@ -12,9 +14,11 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+@SpringBootTest
 @RunWith(SpringRunner.class)
 public class TrelloMapperTest {
-    TrelloMapper trelloMapper = new TrelloMapper() ;
+    @Autowired
+    TrelloMapper trelloMapper;
 
     TrelloCard trelloCard = new TrelloCard("test","jUnit4 test", "10","1");
     TrelloCardDto trelloCardDto = new TrelloCardDto("test","jUnit4 test", "11","2");
