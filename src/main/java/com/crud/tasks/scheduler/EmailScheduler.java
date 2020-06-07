@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class EmailScheduler {
-    private static final String SUBJECT ="Tasks: New Trello card";
+    private static final String SUBJECT = "Tasks: New Trello card";
 
     @Autowired
     private SimpleEmailService simpleEmailService;
@@ -23,7 +23,7 @@ public class EmailScheduler {
 
     //@Scheduled(cron = "0 0 10 * * *")
     @Scheduled(fixedDelay = 10000)
-    public void sendInformationEmail(){
+    public void sendInformationEmail() {
         long size = taskRepository.count();
         simpleEmailService.send(new Mail(
                 adminConfig.getAdminMMail(),
@@ -32,10 +32,10 @@ public class EmailScheduler {
         ));
     }
 
-    private String correctCount(long l){
-        if (l <= 1 ){
+    private String correctCount(long l) {
+        if (l <= 1) {
             return " task";
-        }else
+        } else
             return " tasks";
     }
 }

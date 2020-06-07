@@ -17,7 +17,7 @@ public class Task {
     private Long id;
 
     @Column(name = "name")
-    private  String title;
+    private String title;
 
     @Column(name = "description")
     private String content;

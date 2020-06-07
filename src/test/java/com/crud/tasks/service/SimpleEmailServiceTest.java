@@ -22,10 +22,10 @@ public class SimpleEmailServiceTest {
     private JavaMailSender javaMailSender;
 
     @Test
-    public void shouldSendEmile(){
+    public void shouldSendEmile() {
         //Given
 
-        Mail mail = new Mail("test@test.com", "Test","TEst message");
+        Mail mail = new Mail("test@test.com", "Test", "TEst message");
 
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setTo(mail.getMailTo());
@@ -36,7 +36,7 @@ public class SimpleEmailServiceTest {
         simpleEmailService.send(mail);
 
         //Then
-        verify(javaMailSender,times(1)).send(mailMessage);
+        verify(javaMailSender, times(1)).send(mailMessage);
     }
 
 }

@@ -1,9 +1,10 @@
 package com.crud.tasks.controller;
 
-import com.crud.tasks.domain.card.CreatedTrelloCard;
+import com.crud.tasks.domain.card.CreatedTrelloCardDto;
 import com.crud.tasks.domain.TrelloBoardDto;
 import com.crud.tasks.domain.card.TrelloCardDto;
 import com.crud.tasks.service.TrelloService;
+import com.crud.tasks.trello.facade.TrelloFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,22 +18,15 @@ import java.util.List;
 public class TrelloController {
 
     @Autowired
-    private TrelloService trelloService;
+    private TrelloFacade trelloFacade;
 
-    @RequestMapping(method = RequestMethod.POST, value = "createTrelloCard")
-    public CreatedTrelloCard createdTrelloCard(@RequestBody TrelloCardDto trelloCardDto) {
-        return trelloService.createNewCard(trelloCardDto);
+    @RequestMapping(method = RequestMethod.POST, value = "/createTrelloCard")
+    public CreatedTrelloCardDto createdTrelloCard(@RequestBody TrelloCardDto trelloCardDto) {
+        return trelloFacade.createCard(trelloCardDto);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "getTrelloBoards")
+    @RequestMapping(method = RequestMethod.GET, value = "/getTrelloBoards")
     public List<TrelloBoardDto> getTrelloBoards() {
-        return trelloService.fetchTrelloBoards();
+        return trelloFacade.fetchTrelloBoards();
     }
 }
-
-    /*        .stream()
-                .filter(trelloBoardDto ->
-                        trelloBoardDto.getId() != null &&
-                        trelloBoardDto.getName() != null &&
-                        trelloBoardDto.getName().matches(".*\\bKodilla\\b.*"))
-                .collect(Collectors.toList());*/

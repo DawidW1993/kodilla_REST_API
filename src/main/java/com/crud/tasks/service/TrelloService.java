@@ -4,7 +4,7 @@ import com.crud.tasks.client.TrelloClient;
 import com.crud.tasks.config.AdminConfig;
 import com.crud.tasks.domain.Mail;
 import com.crud.tasks.domain.TrelloBoardDto;
-import com.crud.tasks.domain.card.CreatedTrelloCard;
+import com.crud.tasks.domain.card.CreatedTrelloCardDto;
 import com.crud.tasks.domain.card.TrelloCardDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,7 @@ import static java.util.Optional.ofNullable;
 
 @Service
 public class TrelloService {
-    private static final String SUBJECT ="Tasks: New Trello card";
+    private static final String SUBJECT = "Tasks: New Trello card";
 
     @Autowired
     private AdminConfig adminConfig;
@@ -26,13 +26,13 @@ public class TrelloService {
     @Autowired
     private SimpleEmailService emailService;
 
-    public List<TrelloBoardDto> fetchTrelloBoards(){
+    public List<TrelloBoardDto> fetchTrelloBoards() {
         return trelloClient.getTrelloBoards();
     }
 
-    public CreatedTrelloCard createNewCard(final TrelloCardDto trelloCardDto){
-        CreatedTrelloCard newCard = trelloClient.createNewCard(trelloCardDto);
-        ofNullable(newCard).ifPresent(card -> emailService.send(new Mail(adminConfig.getAdminMMail(),SUBJECT,
+    public CreatedTrelloCardDto createNewCard(final TrelloCardDto trelloCardDto) {
+        CreatedTrelloCardDto newCard = trelloClient.createNewCard(trelloCardDto);
+        ofNullable(newCard).ifPresent(card -> emailService.send(new Mail(adminConfig.getAdminMMail(), SUBJECT,
                 "New card: " + card.getName() + "has been created on your Trello account")));
         return newCard;
     }
