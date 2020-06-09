@@ -18,7 +18,8 @@ import java.util.List;
 public class TrelloController {
 
 
-    private TrelloFacade trelloFacade = new TrelloFacade();
+    @Autowired
+    private TrelloFacade trelloFacade ;
 
     @RequestMapping(method = RequestMethod.POST, value = "/createTrelloCard")
     public CreatedTrelloCardDto createdTrelloCard(@RequestBody TrelloCardDto trelloCardDto) {
