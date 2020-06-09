@@ -5,6 +5,7 @@ import com.crud.tasks.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,10 +23,12 @@ public class DbService {
     }
 
     public Task saveTask(final Task task) {
-        return repository.save(task);
+        repository.save(task);
+        return task;
     }
 
-    public void deleteTask(final Task task) {
+    public boolean deleteTask(final Task task) {
         repository.delete(task);
+        return repository.existsById(task.getId());
     }
 }

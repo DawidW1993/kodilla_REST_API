@@ -35,4 +35,8 @@ public class TrelloServiceTest {
         assertEquals(0,testBoardDto.getLists().size());
     }
 
+
+    @Test
+    public void createNewCard() {
+    }
 }
