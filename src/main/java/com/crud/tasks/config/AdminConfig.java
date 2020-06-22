@@ -9,5 +9,26 @@ import org.springframework.stereotype.Component;
 public class AdminConfig {
 
     @Value("${admin.mail}")
-    private String adminMMail;
+    private String adminMail;
+
+    @Value("${admin.name}")
+    private String adminName;
+
+    @Value("${info.company.name}")
+    private String companyName;
+
+    @Value("${info.company.goal}")
+    private String companyGoal;
+
+    @Value("${info.company.emial}")
+    private String companyEmail;
+
+    @Value("${info.company.phone}")
+    private String companyPhone;
+
+    @Value("${info.app.name}")
+    private String applicationName;
+
+    @Value("${info.app.version}")
+    private String applicationVersion;
 }
