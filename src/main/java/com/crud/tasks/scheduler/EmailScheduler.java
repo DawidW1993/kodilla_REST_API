@@ -32,7 +32,7 @@ public class EmailScheduler {
         ));
     }
 
-    @Scheduled(cron = "0 0 10 * * *")
+    @Scheduled(cron = "0 0 8 * * *")
     public void sendTasksInformationEmail() {
         long size = taskRepository.count();
         simpleEmailService.sendEveryday(new Mail(
